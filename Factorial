@@ -1,0 +1,37 @@
+import java.util.Scanner;
+
+public class Factorial {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Give a number:");
+        int input = Integer.valueOf(scanner.nextLine());
+        
+        int factor = 1;
+        int progressor = 1;
+        int var = 0;
+        //int count = 1;
+
+        for (int count = 0; count < input; count++) {
+            //progressor++; //geht 1 hoch
+            
+            factor = factor * (progressor);
+            
+            System.out.println(factor);
+            //System.out.println(var);
+            progressor++;
+        }
+
+        /*while (count <= input) {
+            factor *= count;
+            count++;
+            System.out.println(factor);
+        }*/
+
+        
+      
+        System.out.println("Factorial: " + factor);
+        //System.out.println(var);
+        
+    }
+}
