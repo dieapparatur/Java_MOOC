@@ -1,0 +1,25 @@
+import java.util.Scanner;
+
+public class SumOfASequenceTheSequel {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        int outcome = 0; 
+
+        System.out.println("First number?");
+        int first = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Last number?");
+        int input = Integer.valueOf(scanner.nextLine());
+
+        for (int count = first; count <= input; count++) {
+            //outcome = count + count;
+            outcome = count + outcome;
+            System.out.println(outcome);
+            
+        }
+
+        System.out.println("The sum is " + outcome);
+        
+    }
+}
