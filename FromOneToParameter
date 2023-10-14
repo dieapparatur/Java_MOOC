@@ -1,0 +1,13 @@
+
+public class FromOneToParameter {
+    public static void main (String[] args) {
+        printUntilNumber(3);
+
+    }
+
+    public static void printUntilNumber(int count) {
+        for (int plus = 1; plus <= count; plus++) {
+            System.out.println(plus);
+        }        
+    }
+}
