@@ -1,0 +1,34 @@
+
+import java.util.Scanner;
+
+public class DivisibleByThree {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Start?");
+        int start = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("End?");
+        int end = Integer.valueOf(scanner.nextLine());
+
+        divisibleByThreeInRange(start, end);
+    }
+
+    public static void divisibleByThreeInRange(int start, int end) {
+
+        while(start <= end) {
+
+            if (start % 3 == 0) {
+                System.out.println(start);
+            }
+
+            if (start == end) {
+                break;
+            }
+
+            if (start < end) {
+                start++;
+            }
+        }
+    }
+}
