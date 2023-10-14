@@ -1,0 +1,14 @@
+
+public class FromParameterToOne {
+    public static void main(String[] args) {
+        printFromNumberToOne(5);
+    }
+
+    public static void printFromNumberToOne(int number) {
+        int thing = number + 1;
+        for (int count = 0; count < number; count++) {
+            thing--;
+            System.out.println(thing);
+        }
+    }   
+}
