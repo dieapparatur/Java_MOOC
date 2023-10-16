@@ -1,0 +1,32 @@
+import java.util.Scanner;
+
+public class Averaging {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Number 01:");
+        int number01 = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Number 02:");
+        int number02 = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Number 03:");
+        int number03 = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Number 04:");
+        int number04 = Integer.valueOf(scanner.nextLine());
+
+        double result = average(number01, number02, number03, number04);
+        System.out.println("Average: " + result);
+    }
+
+    public static int sum(int val01, int val02, int val03, int val04) {
+        int adding = val01 + val02 + val03 + val04;
+        return adding;
+    }
+
+    public static double average(int v01, int v02, int v03, int v04) {
+        double ave = (double)sum(v01, v02, v03, v04) / 4;
+        return ave;
+    }
+}
