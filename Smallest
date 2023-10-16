@@ -1,0 +1,31 @@
+
+import java.util.Scanner;
+
+public class Smallest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Number01:");
+        int value01 = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Number02:");
+        int value02 = Integer.valueOf(scanner.nextLine());
+
+        int answer = smallest(value01, value02);
+
+        System.out.println("Smallest: " + answer);
+
+    }
+
+    public static int smallest(int number1, int number2) {
+        while (true) {
+            if (number1 < number2) {
+                return number1;
+            }
+
+            if (number1 > number2) {
+                return number2;
+            }
+        }
+    }
+}
