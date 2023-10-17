@@ -1,0 +1,24 @@
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class SecondPlusThird {
+    public static void main(String[] args) {
+        ArrayList<Integer> arList = new ArrayList<>();
+        Scanner scanner = new Scanner(System.in);
+
+        //System.out.println("Give me numbers!!!!!! Please more than three.");
+
+        while (true) {
+            int value = Integer.valueOf(scanner.nextLine());
+
+            if (value == 0) {
+                break;
+            } else {
+                arList.add(value);
+            }
+        }
+
+        System.out.println(arList.get(1) + arList.get(2));
+    }
+}
