@@ -1,0 +1,66 @@
+
+public class AdvancedAstrology {
+
+    public static void printStars(int number) {
+        int stars = 1;
+
+        while (stars <= number) {
+            stars++;
+            System.out.print("*");
+        }
+        System.out.println("");
+    }
+
+    public static void printSpaces(int number) {
+        int space = 1;
+
+        while (space <= number) {
+            System.out.print(" ");
+            space++;
+        }
+    }
+
+    public static void printTriangle(int size) {
+        // part 2 of the exercise
+        int spaceCounter = size - 1;
+        int starCounter = 1;
+
+        while (starCounter <= size) {
+            printSpaces(spaceCounter);
+            printStars(starCounter);
+            starCounter++;
+            spaceCounter--;
+        }
+    }
+
+    public static void christmasTree(int height) {
+        // part 3 of the exercise
+        int stemWidth = 3;
+        int stemHeight = 2;
+        int spaceCounter = height - 1;
+        int starCounter = 1;
+
+        while (starCounter <= height) {
+            printSpaces(spaceCounter);
+            printStars((starCounter * 2) - 1);
+            starCounter++;
+            spaceCounter--;
+        }
+
+        printSpaces(height - 2);
+        printStars(stemWidth);
+        printSpaces(height - 2);
+        printStars(stemWidth);
+
+    }   
+
+    public static void main(String[] args) {
+        // The tests are not checking the main, so you can modify it freely.
+
+        //printSpaces(4);
+        //printTriangle(10);
+        christmasTree(10);
+        /*System.out.println("---");
+        christmasTree(10);*/
+    }
+}
