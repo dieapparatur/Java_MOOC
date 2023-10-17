@@ -1,0 +1,56 @@
+import java.util.Scanner;
+
+public class StarSign {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        //System.out.println("How many Stars should there be?");
+
+        //int value01 = Integer.valueOf(scanner.nextLine());
+        //printSquare(4);
+
+        printRectangle(4, 2);
+        //printTriangle(value01);
+
+    }
+
+    public static void printStars(int stars) {
+        int counter = 1 ;
+
+        while (counter <= stars) {
+            counter++;
+            System.out.print("*");
+        }
+
+        System.out.println("");
+    }
+
+    public static void printSquare(int square) {
+        int size = 1;
+
+        while (size <= square) {
+            printStars(square);
+            size++;
+        } 
+    }
+
+    public static void printRectangle(int width, int heigth) {
+            int rows = 1;
+
+            while (rows <= heigth) {
+                printStars(width);
+                rows++;
+            }
+    }
+
+    public static void printTriangle(int size) {
+        int adding = 0;
+
+        while (adding <= size) {
+            printStars(adding);
+            adding++;
+            
+        }
+
+    }
+}
