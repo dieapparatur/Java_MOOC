@@ -1,0 +1,45 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class GreatestInList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Give me some numbers; I'll search the greatest one of em.");
+
+        while (true) {
+            int input = Integer.valueOf(scanner.nextLine());
+
+            if (input == -1) {
+                break;
+            } else {
+                list.add(input);
+            }
+        }
+        //System.out.println(list.size());
+        //int bigger = 0;
+        //int smaller = 0;
+        //int opp = 0;
+        
+        int fighter = 0;
+        int master = fighter + 22;
+
+        //System.out.println(list.get(0));
+        //System.out.println(list.size());
+
+       for (int index = 0; index < list.size(); index++) {
+        int opp = list.get(index);
+        System.out.println(list.get(index));
+       
+        if (fighter < opp) {
+            fighter = opp;
+        }
+       }
+
+       master = fighter;
+
+       System.out.println("The greatest number: " + master);
+    }
+}
