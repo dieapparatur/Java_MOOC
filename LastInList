@@ -1,0 +1,26 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class LastInList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+
+        System.out.println("Give names; to stop press ENTER");
+
+        int index = -1;
+
+        while (scanner.hasNextLine()) {
+            String newName = scanner.nextLine();
+
+            if (newName.equals("")) {
+                break;
+            } else {
+                names.add(newName);
+                index++;
+            }
+        }
+        System.out.println(names.get(index));
+    }
+}
