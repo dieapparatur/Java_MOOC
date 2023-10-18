@@ -1,0 +1,27 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class RememberTheseNumbers {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Give me some numbers; then I'll give em back to you. Deal?");
+
+        while (scanner.hasNextLine()) {
+            int input = Integer.valueOf(scanner.nextLine());
+
+            if (input == -1) {
+                break;
+            } else {
+                list.add(input);
+            }
+        }
+
+        //System.out.println(list.get(list.size() - 1));
+        for (int index = 0; index < list.size(); index++) {
+            System.out.println(list.get(index));
+        }
+    }
+}
