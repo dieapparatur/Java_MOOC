@@ -1,0 +1,27 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class FirstAndLast {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> names = new ArrayList<>();
+
+        int index = -1;
+
+        System.out.println("Give me names and I'll give you the first and the last one. I promise:)");
+
+        while (scanner.hasNextLine()) {
+            String input = scanner.nextLine();
+
+            if (input.equals("")) {
+                break;
+            } else {
+                names.add(input);
+            }
+        }
+
+        System.out.println(names.get(0));
+        System.out.println((names.get(names.size() - 1)));
+    }
+}
