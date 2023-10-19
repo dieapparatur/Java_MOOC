@@ -1,0 +1,29 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class SumOfAList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Give me some numbaz plsss!");
+
+        while(true) {
+            int input = Integer.valueOf(scanner.nextLine());
+            if (input == -1) {
+                break;
+            } else {
+                list.add(input);
+            }
+        }
+
+        int sum = 0;
+
+        for (int values: list) {
+            sum += values;
+        } 
+
+        System.out.println(sum);
+    }
+}
