@@ -1,0 +1,35 @@
+
+import java.util.Scanner;
+import java.util. ArrayList;
+
+public class OnTheList {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> list = new ArrayList<>();
+
+        System.out.println("Give me some names:)");
+
+        while(true) {
+            String input = scanner.nextLine();
+
+            if (input == "") {
+                break;
+            } else {
+                list.add(input);
+            }
+        }
+
+        System.out.println("Search for?");
+        String searchFor = scanner.nextLine();
+
+        while (true) {
+            if (list.contains(searchFor)) {
+                System.out.println(searchFor + " was found!");
+                break;
+            } else {
+                System.out.println(searchFor + " was not found!");
+                break;
+            }
+        }
+    }
+}
