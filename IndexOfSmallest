@@ -1,0 +1,48 @@
+
+import java.util.Scanner;
+import java.util.ArrayList;
+
+public class IndexOfSmallest {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("Gimme some numbers:");
+
+        while (true) {
+            int input = Integer.valueOf(scanner.nextLine());
+
+            if (input == 9999) {
+                break;
+            } else {
+                list.add(input);
+            }
+        }
+
+        int smallest = list.get(0) + 1;
+        int parser = 0;
+        int comparer = 0;
+
+        for (int index = 0; index < list.size(); index++) {
+            //int counter = list.get(index);
+
+            // searches for smallest value
+            if (smallest > list.get(index)) {
+                smallest = list.get(index);
+            }
+
+        }
+
+        int definedSmallest = smallest;
+
+        System.out.println("Smallest number: " + smallest);
+
+
+        for (int index = 0; index < list.size(); index++) {
+             // searches for index places of those numbers
+            parser = list.get(index);
+            if (list.get(index) == definedSmallest) {
+                System.out.println("Found at index: " + index);
+            }
+        }
+    }
