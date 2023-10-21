@@ -1,0 +1,39 @@
+
+import java.util.ArrayList;
+
+public class RemoveLast {
+    public static void main(String[] args) {
+        ArrayList<String> list = new ArrayList<>();
+
+        list.add("First");
+        list.add("Second");
+        list.add("Third");
+
+        removeLast(list);
+
+        System.out.println(list);
+
+        removeLast(list);
+        removeLast(list);
+
+        System.out.println(list);
+
+        removeLast(list);
+    }
+
+    public static void removeLast(ArrayList<String> strings) {
+        int index = -1;
+        for (int count = 0; count < strings.size(); count++) {
+            index++;
+        }
+
+        if (strings.size() == 0) {
+            System.out.println("There's nothing to remove!");
+            return;
+        }
+
+        if (strings.size() == index + 1) {
+            strings.remove(index);
+        }
+    }
+}
