@@ -1,0 +1,20 @@
+
+public class Printer {
+    public static void main(String[] args) {
+
+        int[] values = {5, 1, 3, 4, 2};
+        printArrayInStars(values);
+        
+    }
+
+    public static void printArrayInStars(int[] array) {
+        int counter = 0;
+        for (int stars: array) {
+            for (int index = 0; index < array[counter]; index++) {
+                System.out.print("*");
+            }
+            System.out.print("\n");
+            counter++;       
+        }
+    }
+}
