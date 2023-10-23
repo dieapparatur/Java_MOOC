@@ -1,0 +1,54 @@
+
+import java.util.Scanner;
+
+public class PersonalDetails {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Start");
+
+        int charCounter = 0;
+        String longest = "Bubu";
+        int sum = 0;
+        int counter = 0;
+        double average = 0;
+
+
+        while(true) {
+            String input = scanner.nextLine();
+
+            if(input.equals("")) {
+                break;
+            } else {
+                String[] splits = input.split(",");
+                //dicides over longest name
+                if (charCounter < splits[0].length()) {
+                    charCounter = splits[0].length();
+                    longest = splits[0];
+                }
+                //responsible for average calc
+                counter++;
+                sum += Integer.valueOf(splits[1]);
+            }
+        }
+
+        average = (double)sum / counter;
+
+        System.out.println("Longest name: " + longest);
+        System.out.println("Average of the birth years: " + average);
+    }
+
+    // Tried building my own String.lenght(), before I knew it existed
+    /*public static int charCount(String strings) {
+        int counter = 0;
+        char character = 'p';
+
+
+        // while(true) {
+        //     character = strings.charAt(counter);
+        //     counter++;
+        //     System.out.println(counter);
+        // }
+        return counter;
+    }*/
+}
