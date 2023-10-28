@@ -1,0 +1,33 @@
+import java.util.ArrayList;
+
+public class Statistics {
+    ArrayList<Integer> list = new ArrayList<>();
+    private int count;
+    private int sum;
+    
+
+    public Statistics(/*int numberCount*/) {
+        //this.count = numberCount;
+    }
+
+    public void addNumber(int number) {
+        list.add(number);
+    }
+
+    public int sum() {
+
+        for (int index = 0; index < list.size(); index++) {
+            sum += list.get(index);
+        }
+        return sum;
+    }
+
+    public double average() {
+        double average = sum / (double)list.size();
+        return average;
+    }
+
+    public int getCount() {
+        return list.size();
+    }
+}
