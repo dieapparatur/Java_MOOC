@@ -1,0 +1,33 @@
+
+public class Statistics {
+    private int count;
+    private int sum;
+    
+
+    public Statistics(/*int numberCount*/) {
+        //this.count = numberCount;
+    }
+
+    public void addNumber(int number) {
+        sum += number;
+        count++;
+    }
+
+    public int sum() {
+        return sum;
+    }
+
+    public double average() {
+        //double average = 0.0;
+        if (count < 1) {
+            return 0.0;
+        } else {
+            double average = sum / (double)count;
+            return average;
+        }
+    }
+
+    public int getCount() {
+        return count;
+    }
+}
