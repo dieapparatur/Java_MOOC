@@ -1,0 +1,35 @@
+import java.util.Scanner;
+import java.util.ArrayList;
+import java.nio.file.Paths;
+
+public class NumbersFromAFile {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> list = new ArrayList<>();
+
+        System.out.println("File?");
+        String fileName = scanner.nextLine();
+        try (Scanner fileReader = new Scanner(Paths.get(fileName))) {
+            while (fileReader.hasNextLine()) {
+                list.add(Integer.valueOf(fileReader.nextLine()));
+            }
+        } catch (Exception ex) {
+            System.out.println("Sorry! File not found.");
+        }
+
+        System.out.println("Lower bound?");
+        int low = Integer.valueOf(scanner.nextLine());
+
+        System.out.println("Upper bound?");
+        int up = Integer.valueOf(scanner.nextLine());
+
+        int counter = 0;
+        for (int items: list) {
+            if (items >= low && items <= up) {
+                counter++;
+            }
+        }
+
+        System.out.println("Numbers: " + counter);
+    }
+}
