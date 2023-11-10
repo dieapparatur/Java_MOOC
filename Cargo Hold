@@ -1,0 +1,118 @@
+import java.util.ArrayList;
+
+public class Suitcase {
+    //private int itemWeight;
+    private int maxWeight;
+    private ArrayList<Item> suitcase;
+
+    public Suitcase(int maxWeight) {
+        this.maxWeight = maxWeight;
+        this.suitcase = new ArrayList<>();
+    }
+
+    public void addItem(Item item) {
+        int itemWeight = 0;
+        for (Item singles : this.suitcase) {
+            itemWeight += singles.getWeight();
+        }
+        
+        if (itemWeight <= this.maxWeight) {
+            this.suitcase.add(item);
+            itemWeight += item.getWeight();
+        }
+        if (itemWeight > this.maxWeight) {
+            this.suitcase.remove(item);
+            itemWeight -= item.getWeight();
+        }
+    }
+
+    public String toString() {
+        int itemWeight = 0;
+        for (Item singles : this.suitcase) {
+            itemWeight += singles.getWeight();
+        }
+        if (this.suitcase.size() == 0) {
+            return "no items (0kg)";
+        }
+
+        if (this.suitcase.size() < 2) {
+            return this.suitcase.size() + " item (" + itemWeight + "kg)";
+        }
+
+        return this.suitcase.size() + " items (" + itemWeight + "kg)";
+    }
+
+    public void printItems() {
+        for (Item singles : this.suitcase) {
+            System.out.println(singles);
+        }
+    }
+
+    public int totalWeight() {
+        int itemWeight = 0;
+        for (Item singles : this.suitcase) {
+            itemWeight += singles.getWeight();
+        }
+        return itemWeight;
+    }
+
+    public Item heaviestItem() {
+        if (this.suitcase.isEmpty()) {
+            return null;
+        }
+        Item heaviest = new Item("martin", 0);
+        for (Item singles : this.suitcase) {
+            if (singles.getWeight() > heaviest.getWeight()) {
+                heaviest = singles;
+            }
+        }
+        return heaviest;
+    }
+}
+
+
+
+import java.util.ArrayList;
+
+public class Hold {
+    private int maxWeight;
+    private ArrayList<Suitcase> caseList;
+
+    public Hold(int maxWeight) {
+        this.maxWeight = maxWeight;
+        this.caseList = new ArrayList<>();
+    }
+
+    public void addSuitcase(Suitcase suitcase) {
+        // this.caseList.add(suitcase);
+        // this.maxWeight += suitcase.totalWeight();
+
+        int itemWeight = 0;
+        for (Suitcase singles : this.caseList) {
+            itemWeight += singles.totalWeight();
+        }
+        
+        if (itemWeight <= this.maxWeight) {
+            this.caseList.add(suitcase);
+            itemWeight += suitcase.totalWeight();
+        }
+        if (itemWeight > this.maxWeight) {
+            this.caseList.remove(suitcase);
+            itemWeight -= suitcase.totalWeight();
+        }
+    }
+
+    public void printItems() {
+        for (Suitcase singles : this.caseList) {
+            singles.printItems();
+        }
+    }
+
+    public String toString() {
+        int itemWeight = 0;
+        for (Suitcase singles : this.caseList) {
+            itemWeight += singles.totalWeight();
+        }
+        return this.caseList.size() + " suitcases (" + itemWeight + " kg)";
+    }
+}
