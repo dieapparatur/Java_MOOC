@@ -1,0 +1,48 @@
+import java.util.Scanner;
+
+public class TextUI {
+    private Scanner scanner;
+    private SimpleDictionary dictio;
+
+    public TextUI(Scanner scanner, SimpleDictionary dictionary) {
+        this.scanner = scanner;
+        this.dictio = dictionary;
+    }
+
+    public void start() {
+        while (true) {
+            System.out.println("Give me a command!");
+            String command = this.scanner.nextLine();
+
+            if (command.equals("end")) {
+                System.out.println("Bye bye!");
+                break;
+            }
+
+            if (command.equals("add")) {
+                System.out.println("Give me a word, and after that, a translation. First the word:");
+                String word = this.scanner.nextLine();
+                System.out.println("Great! And what's the translation of this word?");
+                String translation = this.scanner.nextLine();
+
+                dictio.add(word, translation);
+                continue;
+            }
+
+            if (command.equals("search")) {
+                System.out.println("What word should be translated?");
+                String search = this.scanner.nextLine();
+                if (!(dictio.check(search))) {
+                    System.out.println("Word " + search + " was not found");
+                    continue;
+                }
+                System.out.println(dictio.translate(search));
+
+                continue;
+            }
+
+            System.out.println("Unknown command");
+            continue;
+        }
+    }
+}
