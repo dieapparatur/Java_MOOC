@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class UserInterface {
+
+    private JokeManager manager;
+    private Scanner scanner;
+
+    public UserInterface(JokeManager manager, Scanner scanner) {
+        this.manager = manager;
+        this.scanner = scanner;
+    }
+
+    public void start() {
+        while (true) {
+            System.out.println("Great, let's go! \n Give me a command!");
+            System.out.println("1 - add a joke");
+            System.out.println("2 - draw a joke");
+            System.out.println("3 - list jokes");
+            System.out.println("X - stop");
+            String command = this.scanner.nextLine();
+
+            if (command.equals("X")) {
+                System.out.println("Bye bye!");
+                break;
+            }
+
+            if (command.equals("1")) {
+                System.out.println("What joke should be added?");
+                String joke = scanner.nextLine();
+                this.manager.addJoke(joke);
+                System.out.println("Alright, added the joke! What's next?");
+                continue;
+            }
+
+            if (command.equals("2")) {
+                System.out.println(this.manager.drawJoke());
+            }
+
+            if (command.equals("3")) {
+                this.manager.printJokes();
+            }
+        }
+
+    }
+}
