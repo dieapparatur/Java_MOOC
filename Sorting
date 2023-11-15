@@ -1,0 +1,88 @@
+import java.util.Arrays;
+
+public class MainProgram {
+
+    public static void main(String[] args) {
+        // write your test code here
+        int[] numbers = { 8, 3, 7, 9, 1, 2, 4 };
+        MainProgram.sort(numbers);
+    }
+
+    public static int smallest(int[] array) {
+        int smallest = array[0];
+        for (int singles : array) {
+            if (smallest > singles) {
+                smallest = singles;
+            }
+            System.out.println(smallest);
+        }
+
+        return smallest;
+    }
+
+    public static int indexOfSmallest(int[] array) {
+        int smallest = array[0];
+        int index = 0;
+        int smallestIndex = 0;
+        for (int singles : array) {
+            if (smallest > singles) {
+                smallest = singles;
+                smallestIndex = index;
+            }
+            index++;
+        }
+        return smallestIndex;
+    }
+
+    public static int indexOfSmallestFrom(int[] array, int startIndex) {
+        int smallest = array[startIndex];
+        int smallestIndex = startIndex;
+
+        for (int index = startIndex; index < array.length; index++) {
+            if (smallest > array[index]) {
+                smallest = array[index];
+                smallestIndex = index;
+            }
+        }
+        return smallestIndex;
+    }
+
+    public static void swap(int[] array, int index1, int index2) {
+        int waiting = array[index1];
+        array[index1] = array[index2];
+        array[index2] = waiting;
+    }
+
+    public static void sort(int[] array) {
+        int placeholder = 0;
+        int metaIndex = 0;
+        //int smallest = array[metaIndex];
+
+        // while loop wiederholt den gesamten Suchvorgang nach array.length; hier also 7
+        // mal
+        while (metaIndex < array.length) {
+            int smallest = array[metaIndex];
+            // der for loop sucht nach der kleinsten Zahl und geht dabei jede Index-Stelle,
+            // ab der metaIndex-Stelle, los
+            for (int index = metaIndex; index < array.length; index++) {
+                // in diesem if-Statement darf nicht nur die Bennenung der jeweiligen
+                // array[metaIndex]-Stelle ablaufen, sondern auch der Wechsel der Zahlen
+                // ansonsten wird alles nur überschrieben; daher braucht man hier einen
+                // Placeholder, dessen Wert man dann wieder an die rausgesuchte Stelle setzen
+                // kann
+                if (smallest > array[index]) {
+                    placeholder = smallest;
+                    smallest = array[index];
+                    array[metaIndex] = array[index];
+                    array[index] = placeholder;
+                }
+                System.out.println(Arrays.toString(array));
+            }
+            // erst NACH jedem Durchlauf wird der MetaIndex erhöht, womit die jeweilige
+            // Stelle ausgelassen wird
+            System.out.println(smallest);
+            metaIndex++;
+            System.out.println(Arrays.toString(array));
+        }
+    }
+}
