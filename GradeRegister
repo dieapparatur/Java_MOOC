@@ -1,0 +1,95 @@
+import java.util.ArrayList;
+
+public class PointCalcs {
+
+    private ArrayList<Integer> list;
+    private int count = 0;
+    private int sum = 0;
+    private ArrayList<Integer> passList;
+    private int passCount = 0;
+    private int passSum = 0;
+
+    public PointCalcs() {
+        this.list = new ArrayList<>();
+        this.passList = new ArrayList<>();
+    }
+
+    public void add(int amount) {
+        this.list.add(amount);
+        this.sum += amount;
+        this.count++;
+    }
+
+    public double average() {
+        double average = 0;
+        if (this.count == 0) {
+            average = 0.0;
+        } else {
+            average = this.sum / (double) this.count;
+        }
+        return average;
+    }
+
+    public void addPassing(int amount) {
+        this.passList.add(amount);
+        this.passSum += amount;
+        this.passCount++;
+    }
+
+    public double passAverage() {
+        double passAverage = 0;
+        if (this.passCount == 0) {
+            passAverage = 0.0;
+        } else {
+            passAverage = this.passSum / (double) this.passCount;
+        }
+        return passAverage;
+    }
+
+    public double passPercentage() {
+        double passPercentage = 100 * (double)this.passCount / (double)this.count;
+        return passPercentage;
+    }
+
+    public void gradeDistribution() {
+        
+        int failed = 0;
+        int gradeA = 0;
+        int gradeB = 0;
+        int gradeC = 0;
+        int gradeD = 0;
+        int gradeE = 0;
+        for (int single : this.list) {
+            if (single < 50 && single >= 0) {
+                failed++;
+            }
+            if (single >= 50 && single < 60) {
+                gradeA++;
+            }
+            if (single >= 60 && single < 70) {
+                gradeB++;
+            }
+            if (single >= 70 && single < 80) {
+                gradeC++;
+            }
+            if (single >= 80 && single < 90) {
+                gradeD++;
+            }
+            if (single >= 90 && single <= 100) {
+                gradeE++;
+            }
+        }
+
+        int[] gradeArray = {gradeA ,gradeB , gradeC, gradeD, gradeE, failed};
+
+        int grade = 5;
+        for (int index = 0; index < gradeArray.length; index++) {
+            System.out.print(grade);
+            for (int inner = 0; inner < gradeArray[index]; inner++) {
+                System.out.print("*");
+            }
+            System.out.print("\n");
+            grade--;
+        }
+    }
+}
