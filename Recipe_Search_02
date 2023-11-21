@@ -1,0 +1,75 @@
+import java.util.ArrayList;
+
+public class Recipes implements Cloneable {
+
+    private String name;
+    private int time;
+    private ArrayList<String> list;
+
+    public Recipes() {
+        // this.list = new ArrayList<>();
+        // this.name = this.list.get(0);
+        // this.time = Integer.valueOf(this.list.get(1));
+    }
+
+    public void addRecipe(String input) {
+        this.list.add(input);
+    }
+
+    public void getList(int x) {
+        this.list.get(x);
+    }
+
+    public ArrayList<String> copyList(ArrayList<String> list) {
+        ArrayList<String> newList = new ArrayList<>();
+        for (String single : list) {
+            newList.add(single);
+        }
+        return newList;
+    }
+
+    public void nameSearch(ArrayList<ArrayList<String>> list, String name) {
+        for (ArrayList<String> single : list) {
+            for (int index = 0; index < 2; index++) {
+                if (single.get(index).contains(name)) {
+                    System.out.println(single.get(0) + ", cooking time: " + single.get(1));
+                }
+            }
+        }
+    }
+
+    public void timeSearch(ArrayList<ArrayList<String>> list, String time) {
+        for (ArrayList<String> single : list) {
+            if (Integer.valueOf(single.get(1)) <= Integer.valueOf(time)) {
+                System.out.println(single.get(0) + ", cooking time: " + single.get(1));
+            }
+        }
+    }
+
+    public void ingredientSearch(ArrayList<ArrayList<String>> list, String ingredient) {
+        for (ArrayList<String> single : list) {
+            for (int index = 2; index < single.size(); index++) {
+                if (single.get(index).contains(ingredient)) {
+                    if (isContain(single.get(index), ingredient)) {
+                        System.out.println(single.get(0) + ", cooking time: " + single.get(1));
+                    }
+                }
+            }
+        }
+    }
+    public boolean isContain(String original, String ingredient) {
+        if (original.matches(ingredient)) {
+            return true;
+        }
+        return false;
+    }
+
+    public String toString() {
+        String output = "";
+        for (String single : this.list) {
+            output += "\n" + single;
+        }
+        return this.name + " " + this.time + " " + output;
+        // return this.list.get(0) + " " + this.list.get(1) + output;
+    }
+}
