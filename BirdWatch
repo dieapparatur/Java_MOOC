@@ -1,0 +1,60 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class mainProgram {
+
+    public static void main(String[] args) {
+        // NB! Do not create other scanner objects than the one below
+        // if and when you create other classes, pass the scanner to them
+        // as a parameter
+
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Bird> birdList = new ArrayList<>();
+
+        while (true) {
+            System.out.println("?");
+            String input = scanner.nextLine();
+
+            if (input.equals("Quit")) {
+                break;
+            }
+
+            if (input.equals("Add")) {
+                System.out.println("Name:");
+                String name = scanner.nextLine();
+                System.out.println("Name in Latin:");
+                String latin = scanner.nextLine();
+                Bird bird = new Bird(name, latin);
+                birdList.add(bird);
+            }
+
+            if (input.equals("Observation")) {
+                System.out.println("Bird?");
+                String observedBird = scanner.nextLine();
+                for (Bird single : birdList) {
+                    if (single.getName().equals(observedBird)) {
+                        single.observation();
+                    } else {
+                        System.out.println("Not a bird!");
+                    }
+                }
+            }
+
+            if (input.equals("One")) {
+                System.out.println("Bird?");
+                String one = scanner.nextLine();
+                for (Bird single : birdList) {
+                    if (single.getName().equals(one)) {
+                        System.out.println(single);
+                    }
+                }
+            }
+
+            if (input.equals("All")) {
+                for (Bird single : birdList) {
+                    System.out.println(single);
+                }
+            }
+        }
+    }
+}
