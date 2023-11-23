@@ -1,0 +1,60 @@
+public class Container {
+
+    private int first;
+    private int second;
+
+    public Container() {
+        this.first = 0;
+        this.second = 0;
+    }
+
+    public int getFirst() {
+        return this.first;
+    }
+
+    public int getSecond() {
+        return this.second;
+    }
+
+    public int contains() {
+        return this.first + this.second;
+    }
+
+    public void add(int amount) {
+        if (amount > 0) {
+            this.first += amount;
+            if (this.first > 100) {
+                this.first = 100;
+            }
+        }
+
+    }
+
+    public void move(int amount) {
+        if (amount > this.first) {
+            this.second = this.first;
+            this.first = 0;
+        }
+        if (amount <= this.first) {
+            this.second += amount;
+            this.first -= amount;
+        }
+        if (this.second > 100) {
+            this.second = 100;
+        }
+    }
+
+    public void remove(int amount) {
+        if (this.second < amount) {
+            this.second = 0;
+        }
+        if (this.second > amount) {
+            this.second -= amount;
+        }
+    }
+
+    public String toString() {
+        return "First: " + this.first + "/100" + "\n" + "Second: " + this.second + "/100";
+    }
+
+}
