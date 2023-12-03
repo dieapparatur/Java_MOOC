@@ -1,0 +1,39 @@
+import java.util.HashMap;
+import java.util.ArrayList;
+
+public class DictionaryOfManyTranslations {
+
+    private HashMap<String, ArrayList> transHash;
+    private ArrayList<String> transList;
+
+    public DictionaryOfManyTranslations() {
+        this.transHash = new HashMap<>();
+    }
+
+    public void add(String word, String translation) {
+
+        this.transHash.putIfAbsent(word, new ArrayList<String>());
+        this.transHash.get(word).add(translation);
+
+        // copies the values of this.transList, adds the new Translation; then adds the
+        //tempList as value into the HashMap, which has been cleaned a step before that
+        // ArrayList<String> tempList = new ArrayList<>();
+        // for (String single : this.transList) {
+        //     tempList.add(single);
+        // }
+        // tempList.add(translation);
+        // this.transHash.remove(word);
+        // this.transHash.put(word, tempList);
+    }
+
+    public ArrayList<String> translate(String word) {
+        if (this.transHash.keySet().contains(word)) {
+            return this.transHash.get(word);
+        }
+        return new ArrayList<String>();
+    }
+
+    public void remove(String word) {
+        this.transHash.remove(word);
+    }
+}
