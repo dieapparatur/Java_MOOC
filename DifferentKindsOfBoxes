@@ -1,0 +1,25 @@
+import java.util.ArrayList;
+
+public class BoxWithMaxWeight extends Box {
+
+    private ArrayList<Item> boxList;
+    private int maxWeight;
+    
+    public BoxWithMaxWeight(int maxWeight) {
+        this.boxList = new ArrayList<>();
+        this.maxWeight = maxWeight;
+    }
+
+    @Override
+    public void add(Item item) {
+        if (item.getWeight() <= this.maxWeight) {
+            this.maxWeight -= item.getWeight();
+            this.boxList.add(item);
+        }
+    }
+
+    @Override
+    public boolean isInBox(Item item) {
+        return this.boxList.contains(item);
+    }
+}
